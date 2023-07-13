@@ -1,6 +1,6 @@
 {
-  "name": "react-polygon-image-cropper",
-  "private": false,
+  "name": "@gabrielleakers/react-polygon-image-cropper",
+  "private": true,
   "version": "1.0.0",
   "scripts": {
     "dev": "vite",
@@ -14,7 +14,7 @@
     "image",
     "cropper"
   ],
-  "author": "Brendan Ang",
+  "author": "Gabrielle Akers",
   "dependencies": {
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
@@ -48,6 +48,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bbawj/react-polygon-image-cropper.git"
+    "url": "git+https://github.com/GabrielleAkers/react-polygon-image-cropper.git"
   }
 }

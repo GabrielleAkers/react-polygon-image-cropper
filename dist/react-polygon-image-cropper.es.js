@@ -336,3 +336,4 @@ const Canvas = ({
   });
 };
 export { Canvas };
+//# sourceMappingURL=react-polygon-image-cropper.es.js.map

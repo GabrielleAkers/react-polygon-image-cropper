@@ -46,17 +46,11 @@ export const Handle = ({
     calculateNewHandlePosition(e);
   };
 
-  const handleDragEnd = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.preventDefault();
-    calculateNewHandlePosition(e);
-  };
-
   return (
     <div
       draggable={`${draggable}`}
       onDrag={handleDrag}
       onDragStart={(e) => !draggable && e.preventDefault()}
-      onDragEnd={handleDragEnd}
       className="handle"
       style={{
         top: center.y,

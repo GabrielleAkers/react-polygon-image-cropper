@@ -125,15 +125,10 @@ const Handle = ({
     e.preventDefault();
     calculateNewHandlePosition(e);
   };
-  const handleDragEnd = (e) => {
-    e.preventDefault();
-    calculateNewHandlePosition(e);
-  };
   return /* @__PURE__ */ jsx("div", {
     draggable: `${draggable}`,
     onDrag: handleDrag,
     onDragStart: (e) => !draggable && e.preventDefault(),
-    onDragEnd: handleDragEnd,
     className: "handle",
     style: {
       top: center.y,

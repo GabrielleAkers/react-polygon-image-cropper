@@ -278,12 +278,15 @@ const Canvas = ({
         x,
         y
       }, proximity || 0) && !cropped) {
-        setHandles((prev) => [...prev, {
+        const _handles = [...handles, {
           x,
           y,
           radius,
           color
-        }]);
+        }];
+        if (updateHandlesCallback)
+          updateHandlesCallback(_handles);
+        setHandles(_handles);
       }
     }
   };
@@ -294,9 +297,9 @@ const Canvas = ({
       x,
       y
     };
-    setHandles(handlesCopy);
     if (updateHandlesCallback)
       updateHandlesCallback(handlesCopy);
+    setHandles(handlesCopy);
   };
   return /* @__PURE__ */ jsxs("div", {
     className: "react-polygon-bounding-box",

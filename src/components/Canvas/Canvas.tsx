@@ -189,10 +189,12 @@ const Canvas = ({
         !checkProximity(handles, { x: x, y: y }, proximity || 0) &&
         !cropped
       ) {
-        setHandles((prev) => [
-          ...prev,
+        const _handles = [
+          ...handles,
           { x: x, y: y, radius: radius, color: color },
-        ]);
+        ];
+        if (updateHandlesCallback) updateHandlesCallback(_handles);
+        setHandles(_handles);
       }
     }
   };
@@ -200,8 +202,8 @@ const Canvas = ({
   const updateHandles = (idx: number, x: number, y: number) => {
     const handlesCopy = Array.from(handles);
     handlesCopy[idx] = { ...handlesCopy[idx], x: x, y: y };
-    setHandles(handlesCopy);
     if (updateHandlesCallback) updateHandlesCallback(handlesCopy);
+    setHandles(handlesCopy);
   };
 
   return (

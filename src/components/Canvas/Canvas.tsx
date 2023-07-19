@@ -1,6 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Handle, HandleProps } from '../Handle/Handle';
-import './Canvas.css';
 import {
   checkProximity,
   clearCanvas,
@@ -8,12 +6,16 @@ import {
   drawLine,
   redrawCropped,
 } from '../../utils';
+import { Handle, HandleProps } from '../Handle/Handle';
+import './Canvas.css';
 
 type CustomCallbackProps = (
   imageCanvasRef: React.RefObject<HTMLCanvasElement>,
   cropCanvasRef: React.RefObject<HTMLCanvasElement>,
   finalCanvasRef: React.RefObject<HTMLCanvasElement>
 ) => unknown;
+
+type UpdateHandlesCallbackProps = (handles: Array<HandleProps>) => unknown;
 
 interface EventListenerProps {
   elementRef: React.RefObject<HTMLElement>;
@@ -39,6 +41,7 @@ interface CanvasProps {
   saveProps?: SaveProps;
   styles?: React.CSSProperties;
   customCallback?: CustomCallbackProps;
+  updateHandlesCallback?: UpdateHandlesCallbackProps;
 }
 
 const Canvas = ({
@@ -55,6 +58,7 @@ const Canvas = ({
   saveProps,
   styles,
   customCallback,
+  updateHandlesCallback,
 }: CanvasProps) => {
   const imageCanvasRef = useRef<HTMLCanvasElement>(null);
   const cropCanvasRef = useRef<HTMLCanvasElement>(null);
@@ -197,6 +201,7 @@ const Canvas = ({
     const handlesCopy = Array.from(handles);
     handlesCopy[idx] = { ...handlesCopy[idx], x: x, y: y };
     setHandles(handlesCopy);
+    if (updateHandlesCallback) updateHandlesCallback(handlesCopy);
   };
 
   return (

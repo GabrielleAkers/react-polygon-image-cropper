@@ -1,5 +1,7 @@
 import React from 'react';
+import { HandleProps } from '../Handle/Handle';
 declare type CustomCallbackProps = (imageCanvasRef: React.RefObject<HTMLCanvasElement>, cropCanvasRef: React.RefObject<HTMLCanvasElement>, finalCanvasRef: React.RefObject<HTMLCanvasElement>) => unknown;
+declare type UpdateHandlesCallbackProps = (handles: Array<HandleProps>) => unknown;
 interface EventListenerProps {
     elementRef: React.RefObject<HTMLElement>;
     eventType: string;
@@ -22,6 +24,7 @@ interface CanvasProps {
     saveProps?: SaveProps;
     styles?: React.CSSProperties;
     customCallback?: CustomCallbackProps;
+    updateHandlesCallback?: UpdateHandlesCallbackProps;
 }
-declare const Canvas: ({ width, height, source, radius, color, draggable, proximity, cropEvent, resetEvent, rescaleEvent, saveProps, styles, customCallback, }: CanvasProps) => JSX.Element;
+declare const Canvas: ({ width, height, source, radius, color, draggable, proximity, cropEvent, resetEvent, rescaleEvent, saveProps, styles, customCallback, updateHandlesCallback, }: CanvasProps) => JSX.Element;
 export default Canvas;

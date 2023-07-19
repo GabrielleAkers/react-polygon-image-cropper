@@ -1,7 +1,7 @@
 {
   "name": "@gabrielleakers/react-polygon-image-cropper",
   "private": true,
-  "version": "1.0.4",
+  "version": "1.0.5",
   "scripts": {
     "dev": "vite",
     "prepare": "npm run build",
